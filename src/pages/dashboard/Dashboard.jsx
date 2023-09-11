@@ -1,4 +1,4 @@
- // src/pages/dashboard/Dashboard.jsx
+// src/pages/dashboard/Dashboard.jsx
 import React, { useState } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Sidebar from "./Sidebar"; // Import the Sidebar component
@@ -8,6 +8,8 @@ import Component3 from "./components/Component3";
 import Component4 from "./components/Component4";
 import Component5 from "./components/Component5";
 import Component6 from "./components/Component6";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 const Dashboard = () => {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -27,24 +29,38 @@ const Dashboard = () => {
   };
 
   return (
-    <Flex>
-      {/* Sidebar (smaller size and left-aligned) */}
-      <Sidebar componentData={componentData} onItemClick={handleComponentClick} />
-
-      {/* Content (on the right) */}
-      <Box ml="250px" p="4">
-        {selectedComponent ? (
-          <div>
-            <h2>{selectedComponent.name}</h2>
-            {selectedComponent.content}
-          </div>
-        ) : (
-          <p>Select a component to view its content.</p>
-        )}
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Navbar />
       </Box>
-    </Flex>
+      <Box>
+        <Flex>
+          {/* Sidebar (smaller size and left-aligned) */}
+          <Sidebar
+            componentData={componentData}
+            onItemClick={handleComponentClick}
+          />
+
+          {/* Content (on the right) */}
+          <Box ml="250px" p="4">
+            {selectedComponent ? (
+              <div>
+                <h2>{selectedComponent.name}</h2>
+                {selectedComponent.content}
+              </div>
+            ) : (
+              <p>Select a component to view its content.</p>
+            )}
+          </Box>
+        </Flex>
+      </Box>
+    </>
   );
 };
 
 export default Dashboard;
-

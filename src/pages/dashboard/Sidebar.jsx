@@ -41,10 +41,9 @@ import { Box, ListItem, UnorderedList } from "@chakra-ui/react";
 const Sidebar = ({ componentData, onItemClick }) => {
   return (
     <Box
-      position="fixed"
+      position="absolute"
       left="0"
-      top="0"
-      bottom="0"
+      height="100vh"
       width="250px"
       bg="gray.200"
       p="4"
@@ -71,5 +70,3 @@ const Sidebar = ({ componentData, onItemClick }) => {
 };
 
 export default Sidebar;
-
-

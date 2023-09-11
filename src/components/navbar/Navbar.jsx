@@ -39,12 +39,16 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { NAV_ITEMS } from "@/routes/router.js";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const navigate = useNavigate();
   const { isAuthenticated, signOut, userEmail } = useContext(AuthContext);
+
+  const location = useLocation();
+  const isDashboard = location.pathname === "/dashboard";
 
   const handleSignOut = () => {
     signOut();
