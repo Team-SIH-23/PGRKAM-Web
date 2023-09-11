@@ -9,7 +9,7 @@ const Component3 = () => {
         bg="orange.500"
         color="black"
         width="800px"
-        p="20px"
+        p="10px"
         margin="0 auto " // Adjust the margin to remove the gap
         fontSize="xl"
         fontWeight="bold"
@@ -48,7 +48,7 @@ const Component3 = () => {
           </Select>
         </FormControl>
         <Button colorScheme="blue" position="relative" top="10px" left="50%" transform="translateX(-50%)">
-          Button
+          Search
         </Button>
       </Box>
     </VStack>

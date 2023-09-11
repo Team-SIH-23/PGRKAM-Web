@@ -1,47 +1,12 @@
-// // // src/pages/dashboard/Sidebar.jsx
-
-// import React from "react";
-// import { Box, ListItem, UnorderedList } from "@chakra-ui/react";
-
-// const Sidebar = ({ componentData, onItemClick }) => {
-//   return (
-//     <Box
-//       position="fixed"
-//       left="0"
-//       top="0"
-//       bottom="0"
-//       width="250px"
-//       bg="gray.200"
-//       p="4"
-//       overflowY="auto"
-//     >
-//       <UnorderedList>
-//         {componentData.map((component, index) => (
-//           <ListItem
-//             key={index}
-//             onClick={() => onItemClick(component)}
-//             cursor="pointer"
-//             _hover={{ bg: "gray.300" }}
-//             borderRadius="md"
-//             p="2"
-//             mb="2"
-//           >
-//             {component.name}
-//           </ListItem>
-//         ))}
-//       </UnorderedList>
-//     </Box>
-//   );
-// };
-
-// export default Sidebar;
 import React from "react";
-import { Box, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Box, ListItem, UnorderedList , Avatar, Text} from "@chakra-ui/react";
 
 const Sidebar = ({ componentData, onItemClick }) => {
   return (
+    <>
     <Box
-      position="absolute"
+
+      position="auto"
       left="0"
       height="100vh"
       width="250px"
@@ -50,6 +15,11 @@ const Sidebar = ({ componentData, onItemClick }) => {
       overflowY="auto"
       borderRight="2px solid orange" // Add an orange border
     >
+      <Box mb="10px" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Avatar size="xl" src='https://bit.ly/broken-link'/> 
+      <Text fontWeight="bold" fontSize="20px" color="black">Hi Admin</Text>
+      <Text  fontWeight={600} fontSize="15px" color="black">Welcome to your Dashboard</Text>
+      </Box>
       <UnorderedList>
         {componentData.map((component, index) => (
           <ListItem
@@ -58,14 +28,15 @@ const Sidebar = ({ componentData, onItemClick }) => {
             cursor="pointer"
             _hover={{ bg: "gray.300" }} // Add hover effect
             borderRadius="md"
-            p="2"
-            mb="2"
+            p="1"
+            mb="1"
           >
             {component.name}
           </ListItem>
         ))}
       </UnorderedList>
     </Box>
+    </>
   );
 };
 
