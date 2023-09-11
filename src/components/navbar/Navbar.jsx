@@ -25,6 +25,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Image,Link
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -53,15 +54,16 @@ export default function Navbar() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
+        bg="linear-gradient(to top, #fec38d, #fcc694, #fed5af, #f6d4b4, #FFFFE6)"
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        minH={"80px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -78,13 +80,12 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Logo
-          </Text>
+         <Image  pl={4} mb="10px" src="logo-new2.png" alt="Image Description" width="5%" maxH="200px" objectFit="cover"/>
+         <Box pl={2}>
+          <Text fontWeight="bold" fontSize="18">PUNJAB GHAR GHAR ROZGAAR</Text>
+          <Text fontSize="16">Department of Employment Generation</Text>
+          <Text fontSize="16">Skill Development and Training</Text>
+         </Box>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -165,9 +166,11 @@ export default function Navbar() {
               bg={useColorModeValue("white", "gray.900")}
               borderColor={useColorModeValue("gray.200", "gray.700")}
             >
-              <MenuItem component={RouterLink} to="/profile">
+              <Link href="http://127.0.0.1:5173/dashboard">
+              <MenuItem component={RouterLink} to="/dashboard">
                 Profile
               </MenuItem>
+              </Link>
               <MenuItem>Settings</MenuItem>
               <MenuItem>Change Password</MenuItem>
               <MenuDivider />
@@ -191,7 +194,7 @@ const DesktopNav = () => {
 
   return (
     <>
-      <Stack direction={"row"} spacing={4}>
+      <Stack direction={"row"} spacing={4} ml={300}>
         {NAV_ITEMS.navlinks.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={"hover"} placement={"bottom-start"}>
