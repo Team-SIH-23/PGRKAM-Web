@@ -1,4 +1,4 @@
- // src/pages/dashboard/Dashboard.jsx
+// src/pages/dashboard/Dashboard.jsx
 import React, { useState } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Sidebar from "./Sidebar"; // Import the Sidebar component
@@ -12,6 +12,7 @@ import Component6 from "./components/Component6";
 import Component7 from "./components/Component7";
 import Component8 from "./components/Component8";
 import Component9 from "./components/Component9";
+
 
 const Dashboard = () => {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -57,4 +58,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

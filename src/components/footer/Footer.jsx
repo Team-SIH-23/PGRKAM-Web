@@ -12,7 +12,6 @@ import {
   IconButton,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { BiMailSend } from "react-icons/bi";
 
@@ -42,7 +41,7 @@ const SocialButton = ({ children, label, href }) => {
       bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
       rounded={"full"}
       w={8}
-      h={8}
+      h={6}
       cursor={"pointer"}
       as={"a"}
       href={href}
@@ -73,7 +72,7 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
-      pt={10}
+      mt={10}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid
