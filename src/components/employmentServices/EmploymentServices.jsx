@@ -1,5 +1,7 @@
 "use client";
 
+import { useContext } from "react";
+
 import {
   Box,
   Button,
@@ -11,13 +13,9 @@ import {
   Text,
   useColorModeValue,
   Center,
-  CardBody,
-  CardHeader,
-  StackDivider,
 } from "@chakra-ui/react";
 
 import {
-  FcAbout,
   FcAssistant,
   FcCollaboration,
   FcDonate,
@@ -29,10 +27,25 @@ import {
 import { FaWheelchair } from "react-icons/fa";
 import { GiStarMedal } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import {
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 
-const Card = ({ heading, icon, route }) => {
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+
+const Card = ({ heading, icon, route, onClick }) => {
   return (
-    <Link to={route} style={{ width: "200px" }}>
+    <Link
+      to={route}
+      style={{ width: "200px" }}
+      onClick={heading === "Jobs" ? onClick : undefined}
+    >
       <Box
         maxW={{ base: "full", md: "200px" }}
         w={"full"}
@@ -71,6 +84,10 @@ const Card = ({ heading, icon, route }) => {
 };
 
 export default function EmploymentServices() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+  const { setSector } = useContext(AuthContext);
+
   const cardData = [
     {
       heading: "Jobs",
@@ -114,6 +131,10 @@ export default function EmploymentServices() {
     },
   ];
 
+  const handleModal = () => {
+    onOpen();
+  };
+
   return (
     <>
       <Stack mt={20} spacing={4} as={Container} maxW={"3xl"} textAlign={"left"}>
@@ -124,6 +145,74 @@ export default function EmploymentServices() {
           Explore all the employment services offered.
         </Text>
       </Stack>
+      <Modal onClose={onClose} size={"xl"} isOpen={isOpen}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Flex
+              direction="row"
+              justifyContent="space-between"
+              mt={4}
+              pb={6}
+              pt={6}
+            >
+              <Box
+                width="45%"
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                boxShadow="xl"
+                p={4}
+                bg="white"
+              >
+                <Text fontWeight="bold" mb={2}>
+                  View All Government Jobs
+                </Text>
+                <Button
+                  onClick={() => {
+                    setSector("Government");
+                    navigate("/jobs");
+                  }}
+                  mt={2}
+                  variant="solid"
+                  bg="blue.400"
+                  color="white"
+                >
+                  View
+                </Button>
+              </Box>
+
+              <Box
+                width="45%"
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                boxShadow="xl"
+                p={4}
+                bg="white"
+              >
+                <Text fontWeight="bold" mb={2}>
+                  View All Private Jobs
+                </Text>
+                <Button
+                  onClick={() => {
+                    setSector("Private");
+                    navigate("/jobs");
+                  }}
+                  mt={2}
+                  variant="solid"
+                  bg="blue.400"
+                  color="white"
+                >
+                  View
+                </Button>
+              </Box>
+            </Flex>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+
       <Box>
         <Box
           p={5}
@@ -155,7 +244,8 @@ export default function EmploymentServices() {
                     icon={data.icon}
                     border="2px"
                     borderColor="gray.300"
-                    route={data.route}
+                    route={data.heading === "Jobs" ? "" : data.route}
+                    onClick={data.heading === "Jobs" ? handleModal : undefined}
                   />
                 ))}
               </Flex>

@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [userEmail, setUserEmail] = useState("");
+  const [sector, setSector] = useState("");
 
   const signOut = async () => {
     try {
@@ -21,6 +22,8 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated,
     userEmail,
     setUserEmail,
+    sector,
+    setSector,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
