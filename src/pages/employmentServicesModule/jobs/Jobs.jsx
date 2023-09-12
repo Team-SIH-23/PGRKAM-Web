@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../../../components/navbar/Navbar";
 import {
   Box,
@@ -10,17 +10,17 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Jobs = () => {
   const [jobsData, setJobsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 5; // Number of jobs per page
+  const { sector } = useContext(AuthContext);
 
   useEffect(() => {
     axios
-      .get(
-        "https://pgrkamadmin.pgrkam.com/m_api/v1/index.php/govt-job/index"
-      )
+      .get("https://pgrkamadmin.pgrkam.com/m_api/v1/index.php/govt-job/index")
       .then((response) => {
         console.log(response.data);
         setJobsData(response.data);
@@ -42,13 +42,13 @@ const Jobs = () => {
     <>
       <Navbar />
       <Text
-      fontWeight="bold"
-      fontSize="3xl"
-      textShadow="2px 2px 4px rgba(0, 0, 0, 0.2)"
-      textAlign="center"
-    >
-     GOVERNMENT JOBS
-    </Text>
+        fontWeight="bold"
+        fontSize="3xl"
+        textShadow="2px 2px 4px rgba(0, 0, 0, 0.2)"
+        textAlign="center"
+      >
+        {sector} JOBS
+      </Text>
       <Container maxW="xl" centerContent>
         <SimpleGrid columns={1} spacing={4}>
           {currentJobs.map((job, index) => (
@@ -150,4 +150,3 @@ const Jobs = () => {
 };
 
 export default Jobs;
-
