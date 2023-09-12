@@ -54,7 +54,7 @@ export default function Navbar() {
   return (
     <Box>
       <Flex
-        bg="linear-gradient(to top, #fec38d, #fcc694, #fed5af, #f6d4b4, #FFFFE6)"
+        bg="linear-gradient(to top, #fec38d, #fcc694, #fed5af, #f6d4b4, #f9e1c6)"
         color={useColorModeValue("gray.600", "white")}
         minH={"80px"}
         py={{ base: 2 }}

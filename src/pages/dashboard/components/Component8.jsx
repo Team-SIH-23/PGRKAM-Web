@@ -3,7 +3,7 @@ import {Box,Text,Image,Link} from "@chakra-ui/react"
 const Component8 = () => {
   return (
 <Box border="1px solid orange" borderTop="40px solid orange" p="10px" width="1000px" margin="0 auto" position="relative" >
-  <Text mb="10px"  textAlign="center" fontWeight="bold" fontFamily="Arial, sans-serif" fontSize="15px" color="#333">
+  <Text mt={-10} mb="10px"  textAlign="center" fontWeight="bold" fontFamily="Arial, sans-serif" fontSize="17px" color="#333">
     Rozgar Mela-07.08.2023
   </Text>
   <Image  mb="10px" src="logo-new2.png" alt="Image Description" width="10%" maxH="300px" objectFit="cover" margin="0 auto"/>
