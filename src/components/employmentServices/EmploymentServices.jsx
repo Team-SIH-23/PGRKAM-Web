@@ -198,7 +198,7 @@ export default function EmploymentServices() {
                 <Button
                   onClick={() => {
                     setSector("Private");
-                    navigate("/jobs");
+                    navigate("/privatejobs");
                   }}
                   mt={2}
                   variant="solid"
@@ -278,13 +278,13 @@ export default function EmploymentServices() {
                 p={2}
                 width={"100%"}
                 rounded="md"
-                bg="blue.400"
+                bg=" #f27437"
                 mb={4}
               >
                 <Heading
                   fontSize={{ base: "xl", sm: "xl" }}
                   fontWeight={"bold"}
-                  color={"white"}
+                  color="white"
                   textAlign={"center"}
                 >
                   Notifications
@@ -319,7 +319,8 @@ export default function EmploymentServices() {
                 p={2}
                 width={"100%"}
                 rounded="md"
-                bg="blue.400"
+                bg=" #f27437"
+                color="white"
                 mb={4}
               >
                 <Heading

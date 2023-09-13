@@ -1,4 +1,4 @@
-// src/pages/dashboard/Dashboard.jsx
+ // src/pages/dashboard/Dashboard.jsx
 import React, { useState } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Sidebar from "./Sidebar"; // Import the Sidebar component
@@ -15,8 +15,8 @@ import Component9 from "./components/Component9";
 
 
 const Dashboard = () => {
-  const [selectedComponent, setSelectedComponent] = useState(null);
-
+  const [selectedComponent, setSelectedComponent] = useState({ name: "Profile Details", content:<Component7/>});
+  
   const componentData = [
     { name: "Profile Details", content:<Component7/>},
     { name: "Hall Ticket", content:<Component8/>},
@@ -34,7 +34,6 @@ const Dashboard = () => {
   const handleComponentClick = (component) => {
     setSelectedComponent(component);
   };
-
   return (
     <>
     <Navbar/>
@@ -49,7 +48,7 @@ const Dashboard = () => {
             {selectedComponent.content}
           </div>
         ) : (
-          <p>Select a component to view its content.</p>
+          <p>Hello</p>
         )}
       </Box>
     </Flex>

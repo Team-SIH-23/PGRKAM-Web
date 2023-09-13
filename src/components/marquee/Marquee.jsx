@@ -12,7 +12,7 @@ const slide = keyframes`
 
 const Marquee = ({ text }) => {
   return (
-    <Box as="div" w="100%" overflow="hidden" bg="gray.100" position="relative">
+    <Box as="div" w="100%" overflow="hidden" bg=" #bee9c7" position="relative">
       <Box
         as="div"
         whiteSpace="nowrap"
@@ -21,7 +21,7 @@ const Marquee = ({ text }) => {
         px={4}
         fontSize="ls"
         animation={`${slide} 10s linear infinite`}
-        color="blue.500"
+        color="black"
       >
         {text}
       </Box>

@@ -84,7 +84,7 @@ export default function Home() {
         shadow="1px 1px 3px rgba(0,0,0,0.3)"
         maxWidth="90%"
         p={6}
-        m="5px auto"
+        m="4px auto"
         as="form"
         backgroundImage="top-bg2.jpg"
       >
@@ -248,8 +248,10 @@ export default function Home() {
             onClick={handleClick}
             isLoading={isLoading}
             loadingText="Searching Jobs"
-            colorScheme="blue"
+            bg=" #f27437"
+            color="white"
             variant="solid"
+            _hover={{ bg: 'blue.500' }}
           >
             Search Jobs
           </Button>

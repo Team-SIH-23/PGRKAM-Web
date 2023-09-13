@@ -11,7 +11,7 @@ const Sidebar = ({ componentData, onItemClick }) => {
       height="100vh"
       width="250px"
       bg="gray.200"
-      p="4"
+      p="5"
       overflowY="auto"
       borderRight="2px solid orange" // Add an orange border
     >
