@@ -17,10 +17,12 @@ const Jobs = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 5; // Number of jobs per page
   const { sector } = useContext(AuthContext);
+  const api="https://pgrkamadmin.pgrkam.com/m_api/v1/index.php/govt-job/index"
+             
 
   useEffect(() => {
     axios
-      .get("https://pgrkamadmin.pgrkam.com/m_api/v1/index.php/govt-job/index")
+      .get(api)
       .then((response) => {
         console.log(response.data);
         setJobsData(response.data);
@@ -47,9 +49,9 @@ const Jobs = () => {
         textShadow="2px 2px 4px rgba(0, 0, 0, 0.2)"
         textAlign="center"
       >
-        {sector} JOBS
+        Government Jobs
       </Text>
-      <Container maxW="xl" centerContent>
+      <Box  border="1px solid orange" p="20px" w="70%" margin="20px auto" position="relative" borderRadius="lg">
         <SimpleGrid columns={1} spacing={4}>
           {currentJobs.map((job, index) => (
             <Box
@@ -58,77 +60,67 @@ const Jobs = () => {
               borderRadius="lg"
               borderColor="orange"
               p={6}
+              w="100%"
             >
-              <Text fontWeight="bold">Name Of Post:</Text>
-              <Text>{job.job_title}</Text>
+              <Text fontWeight="bold">Name Of Post: {job.job_title}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Name Of Employer:
-              </Text>
-              <Text>{job.company_name}</Text>
+              <Text fontWeight="bold" mt={2}>Name Of Employer:{job.company_name}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Place Of Posting:
-              </Text>
-              <Text>{job.location}</Text>
+              <Text mt={2}>
+                <Text as="span" fontWeight="bold">Place Of Posting</Text>:{job.location}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Required Qualification:
-              </Text>
-              <Text>{job.display_qualification}</Text>
+              <Text mt={2}>
+                Required Qualification: {job.display_qualification}</Text>
+              <Flex justify="space-between" alignItems="center">
+              <Text  flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">Vacancies</Text>: {job.vacancy}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Vacancies:
-              </Text>
-              <Text>{job.vacancy}</Text>
+              <Text  flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">Last Date To Apply</Text>: {job.last_date}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Last Date To Apply:
-              </Text>
-              <Text>{job.last_date}</Text>
+              <Text  flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">Exp. (in years)</Text>:{job.experience}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Exp. (in years):
-              </Text>
-              <Text>{job.experience}</Text>
+              <Text flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">Gender</Text>:{job.gender_preference}</Text>
+              </Flex>
+              
+              <Flex justify="space-between" alignItems="center">
+              <Text flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">Minimum Age(in years):
+              </Text>{job.min_age}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Gender:
+              <Text flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">Maximum Age(in years):
               </Text>
-              <Text>{job.gender_preference}</Text>
+              {job.max_age}</Text>
 
-              <Text fontWeight="bold" mt={2}>
-                Minimum Age(in years):
-              </Text>
-              <Text>{job.min_age}</Text>
-
-              <Text fontWeight="bold" mt={2}>
-                Maximum Age(in years):
-              </Text>
-              <Text>{job.max_age}</Text>
-
-              <Text fontWeight="bold" mt={2}>
-                Apply Here:
-              </Text>
+              <Text flex="1" mt={2}>
+              <Text as="span" fontWeight="bold"> Apply Here:</Text>
               <Link href={job.apply_link} isExternal>
                 Click Here
-              </Link>
-
-              <Text fontWeight="bold" mt={2}>
-                Read Notification:
-              </Text>
+              </Link></Text>
+              
+              <Text flex="1" mt={2}>
+              <Text as="span" fontWeight="bold">
+                Read Notification:</Text>
               <Link href={job.pdf_link} isExternal>
                 Click Here
               </Link>
-
-              <Text fontWeight="bold" mt={2}>
-                Where To Apply:
               </Text>
-              <Text>{job.apply_mode}</Text>
+              </Flex>
+              <Flex justifyContent="space-between" justify="flex-start">
+              <Text mt={2}>
+              <Text as="span" fontWeight="bold">
+                Where To Apply:
+              </Text> {job.apply_mode}</Text>
+              <Text></Text>
+              </Flex>
             </Box>
+            
           ))}
         </SimpleGrid>
-
+        </Box>
         {/* Pagination */}
         <Flex mt={4} justify="center">
           {Array.from({ length: Math.ceil(jobsData.length / jobsPerPage) }).map(
@@ -144,7 +136,7 @@ const Jobs = () => {
             )
           )}
         </Flex>
-      </Container>
+     
     </>
   );
 };

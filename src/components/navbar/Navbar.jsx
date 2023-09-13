@@ -58,8 +58,8 @@ export default function Navbar() {
   return (
     <Box>
       <Flex
-        bg="linear-gradient(to top, #fec38d, #fcc694, #fed5af, #f6d4b4, #f9e1c6)"
-        color={useColorModeValue("gray.600", "white")}
+        bg="linear-gradient(to top,  #f27437,  #f68045,  #f18c59,  #f49666, #f1996c)"
+        color="black"
         minH={"80px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
@@ -192,8 +192,8 @@ export default function Navbar() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkColor = "black"
+  const linkHoverColor =" #484646"
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
@@ -201,7 +201,7 @@ const DesktopNav = () => {
       <Stack direction={"row"} spacing={4} ml={300}>
         {NAV_ITEMS.navlinks.map((navItem) => (
           <Box key={navItem.label}>
-            <Popover trigger={"hover"} placement={"bottom-start"}>
+            <Popover trigger={"hover"} placement={"bottom-start="}>
               <PopoverTrigger>
                 <Box
                   as="a"

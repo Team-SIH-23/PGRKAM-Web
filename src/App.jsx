@@ -22,6 +22,7 @@ import jobsForPwd from "./pages/employmentServicesModule/jobsForPwd/jobsForPwd";
 import LocalServices from "./pages/employmentServicesModule/localServices/LocalServices";
 import SelfEmployment from "./pages/employmentServicesModule/selfEmployment/SelfEmployment";
 import SkillTraining from "./pages/employmentServicesModule/skillTraining/SkillTraining";
+import Privatejobs from "./pages/employmentServicesModule/jobs/privatejobs";
 const App = () => {
   return (
     <ChakraProvider>
@@ -54,6 +55,7 @@ const AppRoutes = () => {
       <Route path="/localServices" element={<LocalServices />} />
       <Route path="/selfEmployment" element={<SelfEmployment />} />
       <Route path="/skillTraining" element={<SkillTraining />} />
+      <Route path="/privatejobs" element={<Privatejobs />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
