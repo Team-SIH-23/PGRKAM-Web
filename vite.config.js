@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "url";
 import path from "path";
 
@@ -9,11 +9,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [react()],
   define: {
-    global: 'globalThis',
+    global: "globalThis",
+    "process.env": process.env,
   },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
   },
-})
+});
