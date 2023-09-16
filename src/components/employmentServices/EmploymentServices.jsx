@@ -38,13 +38,27 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import posthog from "posthog-js";
+
+posthog.init(
+  'phc_O4twmKgiDmct6WN5bXI7LuOvYMj54XTlXpwRQnali2V',
+  {
+    api_host: 'https://app.posthog.com',
+  }
+);
+
+
+const posthogClicked = (onClick) => {
+  posthog?.capture('Clicked Job')
+  onClick
+}
 
 const Card = ({ heading, icon, route, onClick }) => {
   return (
     <Link
       to={route}
       style={{ width: "200px" }}
-      onClick={heading === "Jobs" ? onClick : undefined}
+      onClick={heading === "Jobs" ? posthogClicked(onClick) : undefined}
     >
       <Box
         maxW={{ base: "full", md: "200px" }}
