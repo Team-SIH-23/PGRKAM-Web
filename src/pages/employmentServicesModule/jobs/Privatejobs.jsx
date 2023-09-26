@@ -3,6 +3,7 @@ import Navbar from "../../../components/navbar/Navbar";
 import { Box , Text, Flex ,Button, Link} from "@chakra-ui/react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
+import posthog from "posthog-js";
 
 const Privatejobs = () => {
   const [jobsData, setJobsData] = useState([]);
@@ -10,6 +11,10 @@ const Privatejobs = () => {
   const jobsPerPage = 25; // Number of jobs per page
   const { sector } = useContext(AuthContext);
   const api="https://pgrkamadmin.pgrkam.com/m_api/v1/index.php/post-jobs/index"
+
+posthog.init("phc_hWR3oOZKslKrvx4p2uYgJTcqLDM4AaDd1TTnfA0djxh", {
+  api_host: "https://610a-103-215-237-106.ngrok-free.app",
+});
 
   useEffect(() => {
     axios
@@ -21,6 +26,7 @@ const Privatejobs = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+      posthog?.capture("Clicked Private Jobs");
   }, []);
   
   const indexOfLastJob = currentPage * jobsPerPage;
