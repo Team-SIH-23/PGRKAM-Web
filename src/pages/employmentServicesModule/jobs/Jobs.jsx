@@ -103,8 +103,8 @@ const Jobs = () => {
               
               <Text flex="1" mt={2}>
               <Text as="span" fontWeight="bold">
-                Read Notification:</Text>
-              <Link href={job.pdf_link} isExternal>
+                Read Notification: </Text>
+              <Link color="#f27437" href={job.pdf_link} isExternal>
                 Click Here
               </Link>
               </Text>

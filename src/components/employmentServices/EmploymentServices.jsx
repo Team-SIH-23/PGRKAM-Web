@@ -176,7 +176,7 @@ export default function EmploymentServices() {
                   }}
                   mt={2}
                   variant="solid"
-                  bg="blue.400"
+                  bg="#f27437"
                   color="white"
                 >
                   View
@@ -202,7 +202,7 @@ export default function EmploymentServices() {
                   }}
                   mt={2}
                   variant="solid"
-                  bg="blue.400"
+                  bg="#f27437"
                   color="white"
                 >
                   View
