@@ -40,25 +40,21 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import posthog from "posthog-js";
 
-posthog.init(
-  'phc_O4twmKgiDmct6WN5bXI7LuOvYMj54XTlXpwRQnali2V',
-  {
-    api_host: 'https://app.posthog.com',
-  }
-);
-
+posthog.init("phc_hWR3oOZKslKrvx4p2uYgJTcqLDM4AaDd1TTnfA0djxh", {
+  api_host: "https://610a-103-215-237-106.ngrok-free.app",
+});
 
 const posthogClicked = (onClick) => {
-  posthog?.capture('Clicked Job')
-  onClick
-}
+  posthog?.capture("Clicked Job");
+  onClick;
+};
 
 const Card = ({ heading, icon, route, onClick }) => {
   return (
     <Link
       to={route}
       style={{ width: "200px" }}
-      onClick={heading === "Jobs" ? posthogClicked(onClick) : undefined}
+      onClick={heading === "Jobs" ? onClick : undefined}
     >
       <Box
         maxW={{ base: "full", md: "200px" }}
