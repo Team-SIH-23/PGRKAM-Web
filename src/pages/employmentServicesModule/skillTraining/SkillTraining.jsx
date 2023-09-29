@@ -90,7 +90,6 @@ const Objectives = () => {
 posthog.init("phc_hWR3oOZKslKrvx4p2uYgJTcqLDM4AaDd1TTnfA0djxh", {
   api_host: "https://610a-103-215-237-106.ngrok-free.app",
 });
-import "./SkillTraining.css"; 
 const SkillTraining = () => {
 
   useEffect(()=>{
