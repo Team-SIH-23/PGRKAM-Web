@@ -1,27 +1,20 @@
-// import React from "react";
-
-// const SelfEmployment = () => {
-//   return <div>SelfEmployment</div>;
-// };
-
-// export default SelfEmployment;
-
-
-
-
-//-------------------------------------------------------------------------------------------
 import React, { useEffect, useState } from "react";
+import Navbar from "../../../components/navbar/Navbar";
+
+posthog.init("phc_hWR3oOZKslKrvx4p2uYgJTcqLDM4AaDd1TTnfA0djxh", {
+  api_host: "https://610a-103-215-237-106.ngrok-free.app",
+});
 
 const SelfEmployment = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    
+    posthog?.capture("Clicked Self Employment");
     fetch("https://pgrkamadmin.pgrkam.com/m_api/v1/index.php/selfemployment/view")
       .then((response) => response.json())
       .then((data) => {
-        setData(data); 
+        setData(data.data); 
         setLoading(false); 
         console.log(data);
       })
@@ -32,6 +25,8 @@ const SelfEmployment = () => {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div>
       <h2>Self Employment</h2>
       {loading ? (
@@ -44,6 +39,7 @@ const SelfEmployment = () => {
         </ul>
       )}
     </div>
+    </>
   );
 };
 
