@@ -9,6 +9,8 @@ const AboutUs = () => {
           src="https://www.pgrkam.com/images/skill_course.jpg"
           alt="Skill Course"
           className="image"
+          width="300px"  // Set the desired width here
+          height="300px"
         />
       </Box>
       <Box flex="2">
@@ -43,6 +45,8 @@ const Introduction = () => {
           src="https://www.pgrkam.com/images/org_structure.jpg"
           alt="Skill Course"
           className="image"
+          width="300px"  // Set the desired width here
+          height="300px"
         />
       </Box>
       <Box flex="2">
@@ -92,13 +96,13 @@ posthog.init("phc_hWR3oOZKslKrvx4p2uYgJTcqLDM4AaDd1TTnfA0djxh", {
 });
 const SkillTraining = () => {
 
-  useEffect(()=>{
+  useEffect(() => {
     posthog?.capture("Clicked Skill Training");
-  },[])
+  }, [])
   return (
     <>
-      <Navbar/>
-     <AboutUs />
+      <Navbar />
+      <AboutUs />
       <Introduction />
       <Objectives />
     </>
